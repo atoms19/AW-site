@@ -33,8 +33,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body>
 		<Header />
-		<main>
-			<article>
+		  <main>
+
+	 		<article>
 				<div class="">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}	
 					{heroImage && <Image width={1020} class="blurred" height={510} src={heroImage} alt="" />}	
@@ -59,6 +60,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					<slot />
 				</div>
 			</article>
+			<div style="width:100%;display:flex;justify-content:center;">
+ <a href="/blog" ><button class="outline">back to posts</button></a>
+			</div>	
 		</main>
 		<Footer />
 	</body>

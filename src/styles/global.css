@@ -42,6 +42,11 @@ button{
   border-radius:0.4rem;
   font-size:1rem;
 }
+button.outline{
+  background:transparent;
+  outline:2px solid var(--accent);
+  color:var(--accentDark);
+}
 hr{
   outline: 0;
   border:none;
