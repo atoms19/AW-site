@@ -3,47 +3,118 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import {Image} from "astro:assets"
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+		.hero{
+		  padding:1rem 0rem;
+
+		}
+		.profile-img{
+		     width:9rem;
+		     height:9rem;
+			  display:flex;
+			  background:#bbaffa;
+			  /* background-image: linear-gradient(to right top, #584b96, #7063ae, #897bc7, #a195e0, #bbaffa); */
+			  border-radius:50%;
+			  justify-content:center;
+			  align-items:center;
+			  margin:0;
+			  --ringcolor:#372c73;
+		}
+		.prof-o,.prof-o2{
+		    border:solid 0.1rem var(--ringcolor);
+			   border-radius:50%;
+				  padding:2rem;
+		}
+		.prof-o{
+		    position:relative;
+			   animation:rotate 2.9s linear infinite;
+		}
+		.prof-o:after{
+		    border-radius:50%;
+			 background:var(--ringcolor);
+				  padding:0.4rem;
+				    content:"";
+					   position: absolute;
+						  top:-8%;
+						   
+		}
+		.prof-o:before{
+		    border-radius:50%;
+			   background:var(--ringcolor);
+				  padding:0.4rem;
+				    content:"";
+					   position: absolute;
+						  bottom:-8%;
+						    
+		}
+		.prof-n{
+		    padding:0.8rem;
+			   background:var(--ringcolor);
+				  border-radius:50%;
+				    opacity:0.97;
+		}
+		.prof-o2{
+		    padding:1rem;
+		}
+
+		.profile{
+		    padding-top:3rem;
+			   display:flex;
+				  justify-content:center;
+		}
+@keyframes rotate{
+  0%{
+    transform:rotate (0deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		  <main>
+			 <header class="hero">
+     <div class="profile">
+          <div class="profile-img" src="" width=70px height=70px alt="profile pic">
+          <div class="prof-o">
+				  <div class="prof-n"></div>
+			  </div> 
+    </div>
+
+
+
+				<!-- <Image width={1024} height={502} src={} alt="AW-profile-image"/>  -->
+			 </header>
+			 <h1></h1>
+			 Welcome Vistor to site of atoms ,not litteral atoms but Atoms19 from github!!!, </br>
+			 well nobdoy knows me ;-; for those who dont know i am atoms19
+			 i do coding and stuff and i made this page cause I could share useful sounding stuff...
+			 </br>
+			 </br>
+			 and also very long rants and stuff idk , if u r havin a stroke reading this 
+			 this site is not 4u no formal english no spellings this is RAW ULTIMATE CONTENT
+			 </br>
+			 depending on my mood i might share stories and opinions idk 
+			 I dont think anyone will read them to begin with lmao <i>cries</i>
+
+			 
+			 </br>
+			 </br>
+			 <div style="width:100%;display:flex;justify-content:center;">
+				<a href="/blog"><button>visit blog</button></a>
+
+			 </div>
+		  </main>
 		<Footer />
 	</body>
 </html>
