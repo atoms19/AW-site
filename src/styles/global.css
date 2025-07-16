@@ -7,7 +7,15 @@
 	 --accentDark:#634dd1;
 	 --accentLight:#bbaffa;
 }
-
+@property --grd{
+  syntax: "<angle>";
+  initial-value:0deg;
+  inherits: false;
+}
+@keyframes rotation{
+  0%{--grd:0deg}
+  100%{--grd:360deg}
+}
 body{
   background:var(--bg);
   color:var(--fg);
@@ -39,6 +47,7 @@ button{
   color:#372c73;
   border:none;
   padding:0.5rem 0.75rem;
+  cursor:pointer;
   border-radius:0.4rem;
   font-size:1rem;
 }
@@ -47,6 +56,36 @@ button.outline{
   outline:2px solid var(--accent);
   color:var(--accentDark);
 }
+
+.button-group{
+  display:flex;
+  row-gap:1rem;
+  column-gap:0.75rem;
+  flex-direction: row;
+}
+button.special{
+  position:relative;
+  padding:0.5rem 1rem;
+  background-color: var(--bg);
+  color:var(--accentDark);
+}
+button.special::after,button.special::before{
+  position:absolute;
+  content:'';
+  border-radius: inherit;
+  inset:0;
+  z-index: -1;
+  background:conic-gradient(from var(--grd),var(--accent),var(--accentLight),#9b5fe3);
+  animation: rotation  2s linear infinite;
+}
+button.special::after{
+  filter:blur(20px) saturate(1.1);
+  transition: all 0.5s ;
+}
+button.special:hover::after{
+  filter:blur(5px) saturate(1.2);
+}
+
 hr{
   outline: 0;
   border:none;
@@ -82,6 +121,9 @@ pre{
   h1, h2 {
     font-size: 1.3rem;
     line-height: 1.2;
+  }
+  .button-group{
+	 flex-direction: column;
   }
 }
 kbd{

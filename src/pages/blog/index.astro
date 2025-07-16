@@ -9,7 +9,17 @@ import { Image } from 'astro:assets';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+	);
+	let months=new Map()
+
+	posts.forEach((post)=>{
+	let m=new Date(post.data.pubDate).toLocaleString("default",{month:"long",year:"numeric"})
+	if(!months.has(m)){
+	months.set(m,[])
+	}
+	months.get(m).push(post)
+	})
+
 ---
 
 <!doctype html>
@@ -79,9 +89,13 @@ const posts = (await getCollection('blog')).sort(
 			 </br>
 			 </br>
 			 </p>
+
+			 {Array.from(months.entries()).map(([month, monthPosts]) => (
+  <section>
+	 <h2 style="color:var(--accentLight);">{month}</h2>
 				<ul>
 					{
-						posts.map((post) => (
+						monthPosts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
 								  	{post.data.heroImage && (
@@ -99,7 +113,7 @@ const posts = (await getCollection('blog')).sort(
 						))
 					}
 				</ul>
-			</section>
+  </section>))}
 		</main>
 		<Footer />
 	</body>
