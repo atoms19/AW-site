@@ -10,6 +10,31 @@ import {Image} from "astro:assets"
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		  <main>
+			 <header class="hero">
+			  <div class="profile">
+          <div class="profile-img" src="" width=70px height=70px alt="profile pic">
+          <div class="prof-o">
+				  <div class="prof-n"></div>
+			  </div> 
+			 </header>
+			 <h1>atoms19</h1>
+			 <p>Welcome visitor, myself atoms19 I am programmer, who codes most of his freetime away,
+			 I love web development and I specialize in making and managing enterprise ready webapps that aside I love the art of programming, linux and mangas.<br/><small> I do take commissioned projects</small></p>
+			 
+			 <div style="width:100%;display:flex;justify-content:center;gap:1rem;">
+				<!-- <a href="/blog"><button>visit blog</button></a> -->
+            <a href="/hire"><button class="special">Make me a webapp</button></a>
+			 </div>
+		  </main>
+		<Footer />
+	</body>
+</html>
+
+
     <style>
 		.hero{
 		  padding:1rem 0rem;
@@ -79,35 +104,4 @@ import {Image} from "astro:assets"
 }
 
 		</style>
-	</head>
-	<body>
-		<Header />
-		  <main>
-			 <header class="hero">
-     <div class="profile">
-          <div class="profile-img" src="" width=70px height=70px alt="profile pic">
-          <div class="prof-o">
-				  <div class="prof-n"></div>
-			  </div> 
-    
 
-
-
-				<!-- <Image width={1024} height={502} src={} alt="AW-profile-image"/>  -->
-			 </header>
-			 <h1>Hi !!!</h1>
-			 <p>Welcome visitor, myself atoms19 I am programmer, who codes most of his freetime away,
-			 I love web development and I specialize in making and managing enterprise ready webapps that aside I love the art of programming, linux and mangas.<br/><small> I do take commissioned projects</small></p>
-			 </br>
-			 </div>
-			 
-
-			 
-			 <div style="width:100%;display:flex;justify-content:center;gap:1rem;">
-				<!-- <a href="/blog"><button>visit blog</button></a> -->
-            <a href="/hire"><button class="special">Make me a webapp</button></a>
-			 </div>
-		  </main>
-		<Footer />
-	</body>
-</html>
