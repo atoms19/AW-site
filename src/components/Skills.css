@@ -1,0 +1,49 @@
+
+.ring{
+  width:var(--radius);
+  height:var(--radius);
+  padding:var(--radius);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border: 1px solid #bbaffa;
+  border-radius: 50%;
+  position:absolute;
+  /* animation: rot 3s  infinite; */
+}
+.skills-container{
+  position: relative;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 500px;
+	margin-top: 100px;
+}
+
+.skills-ring{
+  width:var(--radius);
+  padding:var(--radius);
+  height:var(--radius);
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+
+.skill{
+   position: absolute;
+	top: var(--x);
+   left: var(--y);
+	 transform: translate(-50%, -50%);
+	 
+}
+
+@keyframes rot{
+	from{
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to{
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}

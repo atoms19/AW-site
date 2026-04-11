@@ -19,4 +19,4 @@ heroImage: ''
 
 EOF
 
-
+setsid foot nvim $path >/dev/null 2>&1 &

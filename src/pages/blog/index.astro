@@ -1,10 +1,10 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Footer from '../../components/Footer.tsx';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import FormattedDate from '../../components/FormattedDate.tsx';
 import { Image } from 'astro:assets';
 
 const posts = (await getCollection('blog')).sort(
@@ -26,8 +26,7 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	   <style>
-			 ul{
+	   <style> ul{
 				list-style:none;
 				position:relative;
 				padding:1rem;
@@ -73,10 +72,7 @@ const posts = (await getCollection('blog')).sort(
 				margin-bottom:1.5rem;
 				/* box-shadow:0 1px 5px 2px rgba(0,0,0,0.15); */
 				opacity:0.8;
-			 }
-
-
-					</style>
+			 }</style>
 	</head>
 	<body>
 		<Header />

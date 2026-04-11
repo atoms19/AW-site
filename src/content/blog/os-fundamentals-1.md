@@ -1,0 +1,150 @@
+---
+title : 'OS fundamentals'
+description: 'lovely working of cpus and os'
+pubDate: 'Dec 07 2025'
+heroImage: ''
+---
+
+
+# interrupts 
+these are signals sent by device controllers to cpu when there is an important message to be 
+conveyed like the device is busy or device has completed certain action 
+
+when recieved an intterupt the cpu stops whatever its currently doing and 
+transfers the instruction pointer to the routine instructions that hanleds the specified intteurpt 
+
+after the execution of the inttrupt routine instructions the cpu resumes its previouslyu intturupted computation 
+since this interupts the cpu hence the name 
+
+## interrupt vector 
+the interrupt vector is an array of pointers to instruction routines of each inturrput addressed by numbering 
+its in the low memory locations 
+as interupts occur very frequently the cpu needs to access these very fast 
+hence they are stored in low memory locations
+
+saving of the state of the cpu when an intterupt occurs is done to make the resuming 
+of the previous computation possible
+
+## interrupt workflow 
+the device driver would raise and interrupt to the cpu 
+cpu catches these interrupts and dispatches them to the appropriate interrupt handlers 
+these handlers then clear the interrupt and process the data
+
+## interrupt request lines 
+the cpu has dedicated lines to recieve interrupt 
+cpu senses these lines after every instruction to check for interrupts 
+when the cpu detects an interrupt it reads the number from the line and uses this line as the index of the interrupt vector to find the 
+memory location where the instructions to handle the interrupt lives 
+and starts executing it(intterupt handler)
+
+
+an interrupt handler will 
+saves all states that it will be changing 
+
+runs the inturrput , identify reason for it 
+
+restores all teh states 
+returns the control by return_from_interrupt instruction 
+
+## intrupt hanling hurdles 
+1- we need to prioritze certain interupts over the others 
+2- we should be able to put off this intterupt feature during critical code execution 
+3- we should be able to efficiently map the interrupt to its handler
+
+all these hurdles are addressed by modern cpus by using an intterupt controller
+
+##  types of inturrput lines 
+there are 2 types of intterupt lines 
+1) non maskable interrupt lines 
+2) maskable interupt lines 
+
+
+non maskable interrupt lines are used for critical high priority intterupts like 
+memory leaks , hardware failueres etc 
+they are addressed usually in 0-31 range of the intterupt vector  
+
+maskable interrupts are usually used for low priority intterupts 
+they are addressed usually in 32-255 range of the interrupt vector
+these interrupts are mostly for device generated interrupts like keyb 
+
+## interupt chaining 
+
+since the number of interrupts increases it becomes difficutlt to search throught the indicies 
+hence interupts are chined together 
+like an index could lead to the head of the chain and the chain is checked for the appropriate interrupt handler
+
+
+# Fetch decode cycle 
+
+the cpu first fetches the instruction at instruction pointer from the main memory 
+the location of fetching the instruction is decided from the instruction pointer register 
+the instruction is then decoded by the control unit and loaded into the isntruction register 
+after the instruction has been executed the instruction pointer is updated to the next instruction
+
+to load a data from memory to register the load instruction is used 
+to store data from register to memory the store instruction is used 
+
+# memory hierarchy
+
+while running a program the cpu needs the instruction to be stored in the main memory of the cpu 
+the main memory of the cpu is the dynamic RAM (which is volatile in nature)
+
+the cpu also has a small amount of fast memory called cache memory
+and very fast memory to use during computation called registers
+
+but since the main memory is volatile in nature we cant store programs in it permanently 
+hence they are loaded into the secondary memory ie hard disk 
+
+there is also firmware memory locations like EEPROM , ROM etc which store the bootloader programs
+bootloaders are small programs that helps to load the os from the hard disk to the main memory during the booting process 
+
+
+other storage mediums including optical drives and tapes are part of teritiary storage
+
+
+# DMA 
+
+interupt driven I/O communication has certain problems like its too inefficient for large data transfers like NVMe ssds 
+hence Direct memory access 
+this is a hardware component that replaces the interupt bus 
+its capable of writing directly into the memory and communocating n no of bytes to a I/O device fast 
+
+instead of one interrupt ber byte this makes it so that there is only 1 interrupt that informs about the completion 
+when the system uses switch architecture these DMAs are so efficient 
+
+# cpu or processors
+a single processor system has ony 1 cpu and it is only capable of executing 1 instruction set at a time
+having small acompnanying microprocessors that handles other tasks doesnt make the system a multiprocesor one
+
+multiprocesor systems have multiple cpus that can execute instructions simultaneously
+however there are complexities as they share and comptete for resources like memory and I/O devices
+hence syncronization is a big part of acchieving efficiency 
+
+multicore systems are integrated multiprocesor systems they put multiple cores in a single chip
+so that it is more energy efficient and faster
+
+# non uniform memory access (NUMA)
+
+as u add more processors they start to compete for cycles in the systembus while trying to access memory 
+to prevent this we can give each cpu its own local memory which is fast 
+and connect these together using shared system interconnect 
+
+this architecture is called NUMA
+it allows to add more processors and easily scale but it creates a latency time 
+when a cpu tries to access memory of another cpu
+os can account for this latency in some ways 
+these NUMA is really used in servers
+
+# multiprogramming
+a system that can run multiple programs at the same time is called a multiprogramming system
+a program being executed in a multiprgramming system is called a process
+
+in this systems , os loads multiple programs into memory and when there is an interrupt happening for one of the process 
+while the cpu is waiting for some interupt it will take on the next program (switches to the other) and so on 
+this ensures maximum utlizationn of cpu 
+
+# multitasking 
+this is a way to give illusion of simultaneous execution by rapid switching of programs 
+(process scheduling)
+
+
