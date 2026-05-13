@@ -12,7 +12,7 @@ const posts = (await getCollection('blog')).sort(
 	);
 	let months=new Map()
 
-	posts.forEach((post)=>{
+	posts.filter(p=>!p.data.unreleased).forEach((post)=>{
 	let m=new Date(post.data.pubDate).toLocaleString("default",{month:"long",year:"numeric"})
 	if(!months.has(m)){
 	months.set(m,[])

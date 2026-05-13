@@ -6,9 +6,14 @@ import Footer from '../components/Footer.tsx';
 import FormattedDate from '../components/FormattedDate.tsx';
 import { Image } from 'astro:assets';
 
-type Props = CollectionEntry<'blog'>['data'];
-
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+type Props =CollectionEntry<'blog'>["data"] & {
+	headings: {
+		depth: number;
+		text: string;
+		slug: string;
+	}[];
+};
+const { title, description, pubDate, updatedDate, heroImage,headings } = Astro.props;
 ---
 
 <html lang="en">
@@ -34,13 +39,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		padding:0.5rem;
 	 }
   }
+
+  .toc{
+	 position:fixed;
+	 top:10%;
+	 right:5%;
+  }
+
+  body{
+  scroll-behavior:smooth;
+  }
 </style>
 	</head>
 
 	<body>
 		<Header />
 		  <main>
-
 			 <article>
 				<div class="">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}	
@@ -65,11 +79,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					</div>
 					<slot />
 				</div>
+ {headings?.length > 0 && (
+					 <div class="toc">
+						<div>
+					 {headings.map((heading) => (
+						<div  style={{ marginLeft: `${(heading.depth - 1) * 20}px` }}>
+							 <a href={`#${heading.slug}`}>{heading.text}</a>
+								</div>
+				   ))}
+						</div>
+					 </div>
+						    )}
+
 			</article>
 			<div style="width:100%;display:flex;justify-content:center;">
  <a href="/blog" ><button class="outline">back to posts</button></a>
 			</div>	
-		</main>
-		<Footer />
-	</body>
+		  </main>
+		  <Footer />
+		 	</body>
 </html>

@@ -6,8 +6,8 @@ interface Props {
 
 export default function FormattedDate({ date }: Props) {
     return (
-        <time dateTime={date.toISOString()}>
-            {date.toLocaleDateString('en-us', {
+        <time dateTime={date?.toISOString()}>
+            {date?.toLocaleDateString('en-us', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',

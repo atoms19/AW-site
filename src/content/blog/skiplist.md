@@ -3,6 +3,7 @@ title : 'skip list datastructure'
 description: 'i stubled upon another datastructure gonna go over this'
 pubDate: 'Oct 08 2025'
 heroImage: ''
+unreleased: true
 ---
 
 # what is a skiplist bro ?

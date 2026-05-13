@@ -2,26 +2,32 @@
 .ring{
   width:var(--radius);
   height:var(--radius);
-  padding:var(--radius);
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border: 1px solid #bbaffa;
   border-radius: 50%;
   position:absolute;
-  /* animation: rot 3s  infinite; */
+  animation: rot 60s  infinite linear; 
 }
 .skills-container{
   position: relative;
 	width: 100%;
 	height: 100%;
-	margin-bottom: 500px;
-	margin-top: 100px;
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+	
+}
+.skill:hover{
+		animation-play-state: paused;
+}
+
+.ring:has(.skill:hover){
+  	animation-play-state: paused;
 }
 
 .skills-ring{
   width:var(--radius);
-  padding:var(--radius);
   height:var(--radius);
   position: relative;
   transform: translate(-50%, -50%);
@@ -29,14 +35,37 @@
   left: 50%;
   border-radius: 50%;
 }
+.skill-image{
 
+  width:2vw;
+  height:2vw;
+  border-radius:50%;
+  border:2px solid #fff;
+  box-shadow:0 0 5px rgba(0,0,0,0.3);
+  filter: contrast(10%) brightness(150%);
+  transition: all 0.3s ease;
+  animation:justrot 30s infinite linear;
+}
+
+.skill-image:hover{
+  filter:contrast(90%) brightness(100%);
+  transform: scale(1.2);
+}
 
 .skill{
    position: absolute;
-	top: var(--x);
-   left: var(--y);
+	top: var(--y);
+   left: var(--x);
 	 transform: translate(-50%, -50%);
 	 
+}
+@keyframes justrot{
+  from {
+	 		transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
 }
 
 @keyframes rot{

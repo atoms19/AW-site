@@ -3,6 +3,7 @@ title : 'memory allocation and GC'
 description: 'understanding memory allocation and garbage collection'
 pubDate: 'Oct 13 2025'
 heroImage: ''
+unreleased : true
 ---
 
 # memory

@@ -14,7 +14,7 @@ import {Image} from "astro:assets"
 	</head>
 	<body>
 		<Header />
-		  <main>
+		  <main class="main-content">
 			 <header class="hero">
 			  <div class="profile">
           <div class="profile-img" src="" width=70px height=70px alt="profile pic">
@@ -26,20 +26,24 @@ import {Image} from "astro:assets"
 			 <h3 class="sub">Full Stack Engineer</h3>
 			 <p>Hello I am atoms, I build stuff in the web , Im currently prusing a Bachelors degree in Computer Science Engineering, I love computer programming 
 			 ,I love to work with distributed systems and servers</p>
-
 			 <div style="width:100%;display:flex;justify-content:center;gap:1rem;">
-            <a href="/hire"><button class="special"></button></a>
+            <a href="/hire"><button class="special">work with me</button></a>
 			 </div>
 
-			 <h2>Skills</h2> 
 			 <Skills/> 
 		  </main>
-		<Footer />
 	</body>
 </html>
 
 
 <style>
+  body{
+	 overflow-y:hidden;
+  }
+  .main-content *:not(.special){
+		position:relative;	
+		z-index:1;
+	 }
      h1.tit{
 		 margin-bottom:0rem;
 		}
@@ -104,7 +108,8 @@ import {Image} from "astro:assets"
 
 		.profile{
 		    padding-top:3rem;
-			   display:flex;
+			 display:flex;
+			 z-index:100000;
 				  justify-content:center;
 		}
 @keyframes rotate{
