@@ -154,3 +154,7 @@ your phone is with you 90% of the time in case of emergency these tools can give
 to some extend if it doesnt hallucinate like crazy 
 even when theres no internet 
 
+# i am still experimenting with this
+
+so i am still trying out various configs to increase my tps i just want fast realiable ai
+but idk bro when will we get there and if u have a faster chip defo it will do wonders 

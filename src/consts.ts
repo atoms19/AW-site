@@ -3,3 +3,6 @@
 
 export const SITE_TITLE = 'AW';
 export const SITE_DESCRIPTION = 'Site of atoms19 ';
+
+function reimagine(){
+}
