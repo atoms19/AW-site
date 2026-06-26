@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Toc({ headings }: any) {
+export default function Toc({ headings = [] }: any) {
 	let [hidden, setHidden] = useState(false);
 
 	return (

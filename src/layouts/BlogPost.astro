@@ -99,22 +99,6 @@ const { title, description, pubDate, updatedDate, heroImage,headings } = Astro.p
 					<slot />
 
 					<Toc client:load headings={headings}/>
-
-					{/*headings?.length > 0 && (
- <div class="toc">
-	<button onClick={()=>{
-       
-	  }}>hide</button>
-						<div>
-					 {headings.map((heading) => (
-						<div  style={{ marginLeft: `${(heading.depth - 1) * 20}px` }}>
-							 <a href={`#${heading.slug}`}>{heading.text}</a>
-								</div>
-				   ))}
-						</div>
-					 </div>
-					 )*/}
-
 				</div>
 
 			</article>
