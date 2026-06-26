@@ -7,131 +7,131 @@
 
 
 :root {
-  --bg: #f6f6f6;
-  --fg: #444;
-  --hfg: #222;
-  --sec: #999;
-  --accent: #8c77f7;
-  --accentDark: #634dd1;
-  --accentLight: #bbaffa;
+	--bg: #f6f6f6;
+	--fg: #444;
+	--hfg: #222;
+	--sec: #999;
+	--accent: #8c77f7;
+	--accentDark: #634dd1;
+	--accentLight: #bbaffa;
 }
 
 @property --grd {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
 }
 
 @keyframes rotation {
-  0% {
-    --grd: 0deg
-  }
+	0% {
+		--grd: 0deg
+	}
 
-  100% {
-    --grd: 360deg
-  }
+	100% {
+		--grd: 360deg
+	}
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1.125rem;
-  line-height: 1.688rem;
-  width: 70ch;
-  margin: 0 auto;
-  padding: 0.5rem;
+	background: var(--bg);
+	color: var(--fg);
+	font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 1.125rem;
+	line-height: 1.688rem;
+	width: 70ch;
+	margin: 0 auto;
+	padding: 0.5rem;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  line-height: 2.0rem;
-  color: var(--hfg);
+	line-height: 2.0rem;
+	color: var(--hfg);
 
 }
 
 time {
-  color: var(--sec);
-  font-size: 1rem;
+	color: var(--sec);
+	font-size: 1rem;
 }
 
 a {
-  color: var(--accentDark);
+	color: var(--accentDark);
 }
 
 a:visited {
-  color: var(--accent);
+	color: var(--accent);
 }
 
 button {
-  background: var(--accentLight);
-  color: #372c73;
-  border: none;
-  padding: 0.5rem 0.75rem;
-  cursor: pointer;
-  border-radius: 0.4rem;
-  font-size: 1rem;
+	background: var(--accentLight);
+	color: #372c73;
+	border: none;
+	padding: 0.5rem 0.75rem;
+	cursor: pointer;
+	border-radius: 0.4rem;
+	font-size: 1rem;
 }
 
 button.outline {
-  background: transparent;
-  outline: 2px solid var(--accent);
-  color: var(--accentDark);
+	background: transparent;
+	outline: 2px solid var(--accent);
+	color: var(--accentDark);
 }
 
 .button-group {
-  display: flex;
-  row-gap: 1rem;
-  column-gap: 0.75rem;
-  flex-direction: row;
+	display: flex;
+	row-gap: 1rem;
+	column-gap: 0.75rem;
+	flex-direction: row;
 }
 
 button.special {
-  position: relative;
-  padding: 0.5rem 1rem;
-  background-color: var(--bg);
-  color: var(--accentDark);
+	position: relative;
+	padding: 0.5rem 1rem;
+	background-color: var(--bg);
+	color: var(--accentDark);
 }
 
 button.special::after,
 button.special::before {
-  position: absolute;
-  content: '';
-  border-radius: inherit;
-  inset: 0;
-  z-index: -1;
-  background: conic-gradient(from var(--grd), var(--accent), var(--accentLight), #9b5fe3);
-  animation: rotation 2s linear infinite;
+	position: absolute;
+	content: '';
+	border-radius: inherit;
+	inset: 0;
+	z-index: -1;
+	background: conic-gradient(from var(--grd), var(--accent), var(--accentLight), #9b5fe3);
+	animation: rotation 2s linear infinite;
 }
 
 button.special::after {
-  filter: blur(20px) saturate(1.1);
-  transition: all 0.5s;
+	filter: blur(20px) saturate(1.1);
+	transition: all 0.5s;
 }
 
 button.special:hover::after {
-  filter: blur(5px) saturate(1.2);
+	filter: blur(5px) saturate(1.2);
 }
 
 hr {
-  outline: 0;
-  border: none;
-  border-bottom: 2px solid #ccc;
+	outline: 0;
+	border: none;
+	border-bottom: 2px solid #ccc;
 }
 
 img {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
 }
 
 p {
-  margin-bottom: 1.125rem;
+	margin-bottom: 1.125rem;
 }
 
 pre {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 
@@ -139,52 +139,73 @@ pre {
 
 @media (max-width: 560px) {
 
-  /* Styles for narrower-than-70ch screens */
-  body {
-    padding: 1rem;
-    width: 90%;
-    font-size: 0.95rem;
-  }
+	/* Styles for narrower-than-70ch screens */
+	body {
+		padding: 1rem;
+		width: 90%;
+		font-size: 0.95rem;
+	}
 
-  button {
-    font-size: 0.8rem;
-  }
+	button {
+		font-size: 0.8rem;
+	}
 
-  h1,
-  h2 {
-    font-size: 1.3rem;
-    line-height: 1.2;
-  }
+	h1,
+	h2 {
+		font-size: 1.3rem;
+		line-height: 1.2;
+	}
 
-  .button-group {
-    flex-direction: column;
-  }
+	.button-group {
+		flex-direction: column;
+	}
 }
 
 kbd {
 
-  background: #eee;
-  padding: 0.2rem 0.5rem;
-  box-shadow: 2px 2px 0px 1px #999, inset 2px 2px 0px 1px #fff;
+	background: #eee;
+	padding: 0.2rem 0.5rem;
+	box-shadow: 2px 2px 0px 1px #999, inset 2px 2px 0px 1px #fff;
 }
 
 mark {
-  background: #f5ff99;
-  backdrop-filter: blur(3px);
+	background: #f5ff99;
+	backdrop-filter: blur(3px);
 }
 
 
 
 .sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  white-space: nowrap;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+
+
+.toc {
+	position: fixed;
+	top: 10%;
+	right: 5%;
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(30px);
+	border-radius: 0.2rem;
+	padding: 0.2rem;
+	display: block;
+}
+
+.toc button{
+  background-color: transparent;
+  border:1px solid #bbaffa;
+  text-decoration: underline;
+  padding:0.2rem;
+  float:right;
 }

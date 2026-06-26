@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.tsx';
 import FormattedDate from '../components/FormattedDate.tsx';
 import { Image } from 'astro:assets';
+import Toc from '../components/Toc.tsx'
 
 type Props =CollectionEntry<'blog'>["data"] & {
 	headings: {
@@ -34,17 +35,35 @@ const { title, description, pubDate, updatedDate, heroImage,headings } = Astro.p
 	 /* box-shadow:0 5px 5px 2px rgba(0,0,0,0.15); */
   }
 
+ 
   @media (max-width :560px){
     .prose{
 		padding:0.5rem;
 	 }
+
   }
 
-  .toc{
+  /* @media (min-width :560px){ */
+
+    .toc{
 	 position:fixed;
 	 top:10%;
 	 right:5%;
-  }
+	 background:rgba(255,255,255,0.5); 
+	 backdrop-filter:blur(30px);
+	 border-radius:0.2rem;
+	 padding:3rem; 
+	 display:block;
+	 }
+
+	 
+
+
+  /* } */
+
+  
+
+
 
   body{
   scroll-behavior:smooth;
@@ -78,9 +97,14 @@ const { title, description, pubDate, updatedDate, heroImage,headings } = Astro.p
 						<hr />
 					</div>
 					<slot />
-				</div>
- {headings?.length > 0 && (
-					 <div class="toc">
+
+					<Toc client:load headings={headings}/>
+
+					{/*headings?.length > 0 && (
+ <div class="toc">
+	<button onClick={()=>{
+       
+	  }}>hide</button>
 						<div>
 					 {headings.map((heading) => (
 						<div  style={{ marginLeft: `${(heading.depth - 1) * 20}px` }}>
@@ -89,7 +113,9 @@ const { title, description, pubDate, updatedDate, heroImage,headings } = Astro.p
 				   ))}
 						</div>
 					 </div>
-						    )}
+					 )*/}
+
+				</div>
 
 			</article>
 			<div style="width:100%;display:flex;justify-content:center;">
