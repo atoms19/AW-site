@@ -2,7 +2,7 @@
 title : 'Kubernetes is not hard'
 description: 'idk why peeps think its hard'
 pubDate: 'Jun 11 2026'
-heroImage: ''
+heroImage: '../../assets/kube.jpg'
 ---
 
 

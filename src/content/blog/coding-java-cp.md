@@ -1001,3 +1001,8 @@ public class Main {
 ```
 
 this is a bit overkill 
+
+
+# other refrences 
+
+[java cheat sheet](https://leetcode.com/discuss/post/8364756/java-cheat-sheet-by-qabhinav69-mm84/)

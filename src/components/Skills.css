@@ -1,78 +1,101 @@
-
-.ring{
-  width:var(--radius);
-  height:var(--radius);
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border: 1px solid #bbaffa;
-  border-radius: 50%;
-  position:absolute;
-  animation: rot 60s  infinite linear; 
+.ring {
+	width: var(--radius);
+	height: var(--radius);
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	border: 1px solid #bbaffa;
+	border-radius: 50%;
+	position: absolute;
 }
-.skills-container{
-  position: relative;
+
+.ring-non-anti {
+	animation: rot 60s infinite linear;
+}
+
+.ring-anti {
+	animation: rot 60s reverse infinite linear;
+}
+
+.skills-container {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	margin-bottom: 2rem;
 	margin-top: 1rem;
-	
-}
-.skill:hover{
-		animation-play-state: paused;
+
 }
 
-.ring:has(.skill:hover){
-  	animation-play-state: paused;
+.skill:hover {
+	animation-play-state: paused;
 }
 
-.skills-ring{
-  width:var(--radius);
-  height:var(--radius);
-  position: relative;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-}
-.skill-image{
-
-  width:2vw;
-  height:2vw;
-  border-radius:50%;
-  border:2px solid #fff;
-  box-shadow:0 0 5px rgba(0,0,0,0.3);
-  filter: contrast(10%) brightness(150%);
-  transition: all 0.3s ease;
-  animation:justrot 30s infinite linear;
+.skills-container:has(.skill:hover) .ring {
+	animation-play-state: paused;
 }
 
-.skill-image:hover{
-  filter:contrast(90%) brightness(100%);
-  transform: scale(1.2);
+.skills-container:has(.skill:hover) .skill-image {
+	animation: none;
+	transform: rotate(-90deg);
 }
 
-.skill{
-   position: absolute;
+.skills-ring {
+	width: var(--radius);
+	height: var(--radius);
+	position: relative;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+}
+
+.skill-image {
+	--spinSec: 0;
+	width: 2vw;
+	height: 2vw;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	filter: contrast(10%) brightness(150%);
+	transition: all 0.3s ease;
+	transition: transform 4s ease-in;
+}
+
+.skill-image-spin {
+	animation: justrot infinite linear;
+	animation-duration: var(--spinSec);
+}
+
+.skill-image:hover {
+	filter: contrast(90%) brightness(100%);
+	transform: scale(1.2);
+	animation: none;
+}
+
+.skill {
+	position: absolute;
 	top: var(--y);
-   left: var(--x);
-	 transform: translate(-50%, -50%);
-	 
+	left: var(--x);
+	transform: translate(-50%, -50%);
+
 }
-@keyframes justrot{
-  from {
-	 		transform: rotate(360deg);
+
+@keyframes justrot {
+	from {
+		transform: rotate(360deg);
 	}
+
 	to {
 		transform: rotate(0deg);
 	}
 }
 
-@keyframes rot{
-	from{
+@keyframes rot {
+	from {
 		transform: translate(-50%, -50%) rotate(0deg);
 	}
-	to{
+
+	to {
 		transform: translate(-50%, -50%) rotate(360deg);
 	}
 }

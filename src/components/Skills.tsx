@@ -10,7 +10,7 @@ function Ring({ categories,skills, index}: { categories: category[],skills:Skill
 	  let radius = (categories.length - index)*10;
      let r = radius/2;
 		return (
-				<div className="ring" style={{ '--radius': `${radius}vw` } as React.CSSProperties}>
+				<div className={`ring ${index%2 ? 'ring-anti' : 'ring-non-anti'} `} style={{ '--radius': `${radius}vw` } as React.CSSProperties}>
 				<div className="skills-ring">
 				{/*filter skills by category since each ring represents a category , we first filter the skills by the category of that ring*/}
 				{skills.filter(skill => skill.category === categories[index]).map((skill,skillindex,filteredSkills) => {
@@ -20,8 +20,9 @@ function Ring({ categories,skills, index}: { categories: category[],skills:Skill
 					  '--x':`${r+(r*Math.cos(degree))}vw`,
 					  '--y':`${r+(r*Math.sin(degree))}vw`
 					} as React.CSSProperties}>
-						<img src={skill.icon} className={'skill-image'} alt={skill.name} style={{
-					}}/>
+						<img src={skill.icon} className={'skill-image  skill-image-spin'} alt={skill.name} style={{
+						 "--spinSec":"0s"
+					} as React.CSSProperties}/>
 					</div>
 				)})}
 				</div>
